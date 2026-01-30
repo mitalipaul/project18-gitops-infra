@@ -1,0 +1,5 @@
+# Infrastructure Configuration
+ServerName: Web-Server-01
+InstanceType: t2.micro
+Region: us-east-1
+Status: Active
