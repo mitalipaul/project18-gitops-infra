@@ -1,0 +1,27 @@
+name: GitOps Deployment Workflow
+
+# This tells GitHub to run the script every time someone pushes to 'main'
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    name: Deploy Infrastructure
+    runs-on: ubuntu-latest
+    
+    # This connects the job to the 'production' environment you created
+    environment: production 
+
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Run Infrastructure Update
+        run: |
+          echo "Starting GitOps process..."
+          echo "Reading server-config.txt..."
+          cat server-config.txt
+          echo "Applying changes to Cloud Provider..."
+          sleep 5
+          echo "Deployment Complete!"
